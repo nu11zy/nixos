@@ -15,9 +15,18 @@
     username = "username";
   };
 
+  # configure pkgs
+  pkgs-unstable = import nixpkgs-unstable {
+    system = systemSettings.system;
+    config = {allowUnfree = true; allowUnfreePredicate = (_: true);};
+  };
+
+  # configure lib
+  lib = nixpkgs.lib;
+
   inputs = {
-    # NixOS official package source, using the nixos-23.11 branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url = "nixpkgs/nixos-23.11"; # stable branch
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; # unstable branch
   };
 
   outputs = { self, nixpkgs, ... }@inputs: {
