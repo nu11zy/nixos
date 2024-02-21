@@ -52,6 +52,10 @@
     git
   ];
 
+  # Default shell (bash)
+  environment.shells = with pkgs; [ bash ];
+  users.defaultUserShell = pkgs.bash;
+
   # Version
   system.stateVersion = "22.11";
 }
