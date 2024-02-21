@@ -7,7 +7,7 @@
   programs.home-manager.enable = true;
 
   imports = [
-    # ../../user/shell/sh.nix
+    ../../user/shell/sh.nix
   ];
 
   home.stateVersion = "22.11";

@@ -10,6 +10,7 @@
       hostname = "hostname";
       timezone = "Europe/Moscow";
       locale = "en_US.UTF-8";
+      regionFormat = "ru_RU.UTF-8";
     };
 
     # ----- USER SETTINGS ----- #
