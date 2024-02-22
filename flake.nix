@@ -51,7 +51,7 @@
         system = systemSettings.system;
         # path to configuration.nix for selected profile
         modules = [ (./. + "/profile"+("/"+systemSettings.profile)+"/configuration.nix") ];
-        extraSpecialArgs = {
+        specialArgs = {
           inherit pkgs-stable;
           inherit systemSettings;
           inherit userSettings;
