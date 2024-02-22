@@ -14,16 +14,16 @@
   # allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Bootloader
+  # bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  # Networking
+  # networking
   networking.hostName = systemSettings.hostname;
   networking.networkmanager.enable = true;
 
-  # Timezone and locale
+  # timezone and locale
   time.timeZone = systemSettings.timezone;
   i18n.defaultLocale = systemSettings.locale;
   i18n.extraLocaleSettings = {
@@ -38,7 +38,7 @@
     LC_TIME = systemSettings.regionFormat;
   };
 
-  # User account
+  # user account
   users.users.${userSettings.username} = {
     isNormalUser = true;
     description = userSettings.username;
@@ -47,15 +47,15 @@
     uid = 1000;
   };
 
-  # System packages
+  # system packages
   environment.systemPackages = with pkgs; [
     git
   ];
 
-  # Default shell (bash)
+  # default shell (bash)
   environment.shells = with pkgs; [ bash ];
   users.defaultUserShell = pkgs.bash;
 
-  # Version
+  # version
   system.stateVersion = "22.11";
 }
